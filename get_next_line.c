@@ -6,9 +6,11 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:04:51 by wfan              #+#    #+#             */
-/*   Updated: 2022/12/23 15:47:09 by wfan             ###   ########.fr       */
+/*   Updated: 2022/12/23 15:49:52 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
 int	check_end_line(char *str_rest)
 {
@@ -36,7 +38,7 @@ char	*line_next(char *str_rest)
 	j = ft_strlen_2(str_rest);
 	if (!str_rest[j])
 	{
-		free(str_rest);
+		free((void *)str_rest);
 		return (NULL);
 	}
 	new = malloc(ft_strlen_1(str_rest) - j + 1);
@@ -45,7 +47,7 @@ char	*line_next(char *str_rest)
 	while (str_rest[j])
 		new[i++] = str_rest[j++];
 	new[i] = 0;
-	free(str_rest);
+	free((void *)str_rest);
 	return (new);
 }
 
@@ -73,16 +75,16 @@ char	*line_cpy(char *str_rest)
 
 char	*line_read(int fd, char *str_rest)
 {
-	ssize_t				len;
+	ssize_t			len;
 	char			*str_buffer;
 
 	len = 1;
 	str_buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!str_buffer)
 		return (NULL);
-	while (len && !endline_check(str_rest))
+	while (len && !check_end_line(str_rest))
 	{
-		len = read(fd, buffer, BUFFER_SIZE);
+		len = read(fd, str_buffer, BUFFER_SIZE);
 		if (len == -1)
 		{
 			if (str_rest)

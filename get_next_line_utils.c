@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:14:09 by wfan              #+#    #+#             */
-/*   Updated: 2022/12/22 17:14:24 by wfan             ###   ########.fr       */
+/*   Updated: 2022/12/23 15:49:14 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ size_t	ft_strlen_1(char *str)
 
 	i = 0;
 	if (!str)
-		return (0);
-	else if (z == 1)
-	{
-		while (str[i])
-			i++;
-	}
+		return (0);	
+	while (str[i])
+		i++;
 	return (i);
 }
 
@@ -45,11 +42,11 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
 
+	i = 0;
 	if (!src)
 		return (0);
 	if (dstsize == 0)
 		return (ft_strlen_1(src));
-	i = 0;
 	while (src[i] && i < (dstsize - 1))
 	{
 		dst[i] = src[i];
