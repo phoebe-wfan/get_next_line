@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:04:51 by wfan              #+#    #+#             */
-/*   Updated: 2022/12/15 15:06:19 by wfan             ###   ########.fr       */
+/*   Updated: 2022/12/23 15:47:09 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@ int	check_end_line(char *str_rest)
 	int	i;
 	int	j;
 
-	i = -1;
+	i = 0;
 	j = ft_strlen_1(str_rest);
-	while (++i < j)
+	while (i < j)
+	{
 		if (str_rest[i] == '\n')
 			return (1);
+		i++;
+	}
 	return (0);
 }
 
@@ -29,6 +32,7 @@ char	*line_next(char *str_rest)
 	int		i;
 	int		j;
 
+	i = 0;
 	j = ft_strlen_2(str_rest);
 	if (!str_rest[j])
 	{
@@ -38,7 +42,6 @@ char	*line_next(char *str_rest)
 	new = malloc(ft_strlen_1(str_rest) - j + 1);
 	if (!new)
 		return (NULL);
-	i = 0;
 	while (str_rest[j])
 		new[i++] = str_rest[j++];
 	new[i] = 0;
@@ -57,9 +60,11 @@ char	*line_cpy(char *str_rest)
 	the_line = (char *)malloc(ft_strlen_2(str_rest) + 1);
 	if (!the_line)
 		return (NULL);
-	i = -1;
-	while (str_rest[++i] != '\n' && str_rest[i])
+	while (str_rest[i] && str_rest[i] != '\0')
+	{
 		the_line[i] = str_rest[i];
+		i++;
+	}
 	if (str_rest[i] == '\n')
 		the_line[i++] = '\n';
 	the_line[i] = '\0';
@@ -71,10 +76,10 @@ char	*line_read(int fd, char *str_rest)
 	ssize_t				len;
 	char			*str_buffer;
 
+	len = 1;
 	str_buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!str_buffer)
 		return (NULL);
-	len = 1;
 	while (len && !endline_check(str_rest))
 	{
 		len = read(fd, buffer, BUFFER_SIZE);
