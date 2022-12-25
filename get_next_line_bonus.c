@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:04:51 by wfan              #+#    #+#             */
-/*   Updated: 2022/12/23 15:49:52 by wfan             ###   ########.fr       */
+/*   Created: 2022/12/25 16:20:14 by wfan              #+#    #+#             */
+/*   Updated: 2022/12/25 16:44:50 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	check_end_line(char *str_rest)
 {
@@ -68,7 +68,7 @@ char	*line_cpy(char *str_rest)
 		i++;
 	}
 	if (str_rest[i] == '\n')
-	{	
+	{
 		the_line[i] = '\n';
 		i++;
 	}
@@ -102,17 +102,17 @@ char	*line_read(int fd, char *str_rest)
 	return (str_rest);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
-	static char	*str_rest;
+	static char	*str_rest[FD_NBR];
 	char		*line;
 
 	if (BUFFER_SIZE < 1 || fd < 0)
 		return (NULL);
-	str_rest = line_read(fd, str_rest);
-	if (!str_rest)
+	str_rest[fd] = line_read(fd, str_rest[fd]);
+	if (!str_rest[fd])
 		return (NULL);
-	line = line_cpy(str_rest);
-	str_rest = line_next(str_rest);
+	line = line_cpy(str_rest[fd]);
+	str_rest[fd] = line_next(str_rest[fd]);
 	return (line);
 }
