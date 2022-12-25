@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -31,6 +31,6 @@ size_t	ft_strlen_1(char *str);
 size_t	ft_strlen_2(char *str);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line_bonus(int fd);
+char	*get_next_line(int fd);
 
 #endif

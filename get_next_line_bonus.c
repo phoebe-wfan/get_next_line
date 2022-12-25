@@ -102,7 +102,7 @@ char	*line_read(int fd, char *str_rest)
 	return (str_rest);
 }
 
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*str_rest[FD_NBR];
 	char		*line;
