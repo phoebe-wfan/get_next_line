@@ -6,7 +6,7 @@
 /*   By: wfan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:36:00 by wfan              #+#    #+#             */
-/*   Updated: 2022/12/23 16:38:14 by wfan             ###   ########.fr       */
+/*   Updated: 2022/12/25 13:43:42 by wfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 
 size_t	ft_strlen_1(char *str);
 size_t	ft_strlen_2(char *str);
-size_t  ft_strlcpy(char *dst, char *src, size_t dstsize);
-char    *ft_strjoin(char *s1, char *s2);
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
+char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 
 #endif

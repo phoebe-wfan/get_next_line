@@ -19,7 +19,7 @@ int main()
 	printf("$--------$\n");
 	printf("1: %s", get_next_line(fd));
 	printf("$--------$\n");
-	/*printf("2: %s", get_next_line(fd));
+	printf("2: %s", get_next_line(fd));
 	printf("$--------$\n");
 	printf("3: %s", get_next_line(fd));
 	printf("$--------$\n");
@@ -27,6 +27,8 @@ int main()
 	printf("$--------$\n");
 	printf("5: %s", get_next_line(fd));
 	printf("$--------$\n");
-	printf("6: %s", get_next_line(fd));*/
+	printf("6: %s", get_next_line(fd));
+	printf("$--------$\n");
+	printf("7: %s", get_next_line(fd));
 	return 0;
 }

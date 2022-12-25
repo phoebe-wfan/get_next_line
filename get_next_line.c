@@ -41,7 +41,7 @@ char	*line_next(char *str_rest)
 		free((void *)str_rest);
 		return (NULL);
 	}
-	new = malloc(ft_strlen_1(str_rest) - j + 1);
+	new = (char *)malloc(ft_strlen_1(str_rest) - j + 1);
 	if (!new)
 		return (NULL);
 	while (str_rest[j])
@@ -62,7 +62,7 @@ char	*line_cpy(char *str_rest)
 	the_line = (char *)malloc(ft_strlen_2(str_rest) + 1);
 	if (!the_line)
 		return (NULL);
-	while (str_rest[i] && str_rest[i] != '\0')
+	while (str_rest[i] && str_rest[i] != '\n')
 	{
 		the_line[i] = str_rest[i];
 		i++;

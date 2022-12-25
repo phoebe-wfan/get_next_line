@@ -19,7 +19,7 @@ SRC =  		get_next_line.c\
 OBJ = $(SRC:.c=.o)
 
 .c.o:
-	${CC} ${FLAGS} -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 RM		    := rm -f
 
